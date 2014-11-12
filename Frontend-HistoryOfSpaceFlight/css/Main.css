@@ -1,0 +1,55 @@
+﻿html,
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+#Earth-Flat {
+  width: 100%;
+  height: 300px;
+  display: block;
+  background-color: forestgreen;
+}
+#Earth-Sky {
+  height: 2500px;
+  width: 100%;
+  display: block;
+  left: 0;
+  background: #10274f;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #10274f 0%, #1e5799 26%, #7db9e8 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #10274f), color-stop(26%, #1e5799), color-stop(100%, #7db9e8));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #10274f 0%, #1e5799 26%, #7db9e8 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #10274f 0%, #1e5799 26%, #7db9e8 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #10274f 0%, #1e5799 26%, #7db9e8 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #10274f 0%, #1e5799 26%, #7db9e8 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#10274f', endColorstr='#7db9e8', GradientType=0);
+  /* IE6-9 */
+}
+#Space {
+  height: 10000px;
+  width: 100%;
+  display: block;
+  background: #051b2d;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #051b2d 59%, #051b2d 59%, #10274f 98%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(59%, #051b2d), color-stop(59%, #051b2d), color-stop(98%, #10274f));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #051b2d 59%, #051b2d 59%, #10274f 98%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #051b2d 59%, #051b2d 59%, #10274f 98%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #051b2d 59%, #051b2d 59%, #10274f 98%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #051b2d 59%, #051b2d 59%, #10274f 98%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#051b2d', endColorstr='#10274f', GradientType=0);
+  /* IE6-9 */
+}
+/*# sourceMappingURL=Main.css.map */
