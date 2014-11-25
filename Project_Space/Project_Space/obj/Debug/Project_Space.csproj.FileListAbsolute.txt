@@ -1,0 +1,6 @@
+C:\Users\SamDB\Desktop\NMCT\Frontend\Frontend-Project\Project_Space\Project_Space\bin\Project_Space.dll.config
+C:\Users\SamDB\Desktop\NMCT\Frontend\Frontend-Project\Project_Space\Project_Space\bin\Project_Space.dll
+C:\Users\SamDB\Desktop\NMCT\Frontend\Frontend-Project\Project_Space\Project_Space\bin\Project_Space.pdb
+C:\Users\SamDB\Desktop\NMCT\Frontend\Frontend-Project\Project_Space\Project_Space\obj\Debug\Project_Space.csprojResolveAssemblyReference.cache
+C:\Users\SamDB\Desktop\NMCT\Frontend\Frontend-Project\Project_Space\Project_Space\obj\Debug\Project_Space.dll
+C:\Users\SamDB\Desktop\NMCT\Frontend\Frontend-Project\Project_Space\Project_Space\obj\Debug\Project_Space.pdb
