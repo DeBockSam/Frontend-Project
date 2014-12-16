@@ -1,0 +1,168 @@
+﻿//Site parameters
+@siteHeight: 1500vh;
+
+//voor scrollmagic indicators
+.ScrollSceneIndicators { z-index: 9999999 !important; }
+
+//Gradient colors
+/*#region Stars Gradient Parameters*/
+@darkColor: rgba(1,12,30,1);
+@dCEnd: 54%;
+@mediumColorDark: rgba(3,20,51,1);
+@mDCEnd: 65%;
+@mediumColorLight: rgba(16,39,79,1);
+@mLCEnd:77%;
+@lightColor: rgba(30,87,153,1);
+@lCEnd:100%;
+@starsImage: url('../assets/images/stars.png');
+/*#endregion*/
+
+//Shuttle parameters
+@shuttleWidth: 20vw;
+@shuttleHeight: 20vh;
+
+//Atmosphere parameters
+@atmosphereColor:rgba(125,185,232,1);
+@atmosphereColorLowOpacity:rgba(125,185,232,0.6);
+@atmosphereColorNoOpacity:rgba(125,185,232,0);
+
+//Earth parameters
+@earthHeight: 10vh;
+
+body {
+    margin:0;
+
+    //transitie voor animaties in body
+    /*-webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;*/
+}
+
+// momenteel info header
+header {
+    z-index:500;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.5);
+    width:80vw;
+    height:100px;
+    opacity:0;
+    position:fixed;
+}
+
+//maak een groot scrollgebied zodat we kunnen scrollen
+#stars{
+    //height:@siteHeight;
+    width:100%;
+    display:block;
+    position:relative;
+    /*#region Stars Gradient*/
+    background-image: @starsImage , -moz-linear-gradient(top,  @darkColor @dCEnd ,@mediumColorDark @mDCEnd, @mediumColorLight @mLCEnd, @lightColor @lCEnd); // FF3.6+
+    background-image: @starsImage , -webkit-gradient(linear, left top, left bottom, color-stop(@dCEnd,@darkColor), color-stop(@mDCEnd,@mediumColorDark), color-stop(@mLCEnd,@mediumColorLight), color-stop(@lCEnd,@lightColor)); /* Chrome,Safari4+ */
+    background-image: @starsImage , -webkit-linear-gradient(top,  @darkColor @dCEnd ,@mediumColorDark @mDCEnd,@mediumColorLight @mLCEnd,@lightColor @lCEnd); // Chrome10+,Safari5.1+
+    background-image: @starsImage , -o-linear-gradient(top,  @darkColor @dCEnd ,@mediumColorDark @mDCEnd,@mediumColorLight @mLCEnd,@lightColor @lCEnd); // Opera 11.10+
+    background-image: @starsImage , -ms-linear-gradient(top,  @darkColor @dCEnd ,@mediumColorDark @mDCEnd,@mediumColorLight @mLCEnd,@lightColor @lCEnd); // IE10+
+    background-image: @starsImage , linear-gradient(to bottom,  @darkColor @dCEnd ,@mediumColorDark @mDCEnd,@mediumColorLight @mLCEnd,@lightColor @lCEnd); // W3C
+    background-position: top center;
+    background-repeat: repeat;
+    /*#endregion*/
+    overflow:hidden;
+}
+
+.wrap {
+    color:white;
+    text-align: center;
+    padding: 50px 0;
+    position: relative;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+#scene-earth{
+    //height:@siteHeight / 4;
+    background: -moz-linear-gradient(top,  rgba(30,87,153,0) 0, rgba(30,87,153,0.4) 14%, rgba(32,94,162,0.79) 26%, rgba(38,123,199,1) 42%, rgba(41,137,216,1) 55%, rgba(125,185,232,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0,rgba(30,87,153,0)), color-stop(14%,rgba(30,87,153,0.4)), color-stop(26%,rgba(32,94,162,0.79)), color-stop(42%,rgba(38,123,199,1)), color-stop(55%,rgba(41,137,216,1)), color-stop(100%,rgba(125,185,232,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(30,87,153,0) 0,rgba(30,87,153,0.4) 14%,rgba(32,94,162,0.79) 26%,rgba(38,123,199,1) 42%,rgba(41,137,216,1) 55%,rgba(125,185,232,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(30,87,153,0) 0,rgba(30,87,153,0.4) 14%,rgba(32,94,162,0.79) 26%,rgba(38,123,199,1) 42%,rgba(41,137,216,1) 55%,rgba(125,185,232,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(30,87,153,0) 0,rgba(30,87,153,0.4) 14%,rgba(32,94,162,0.79) 26%,rgba(38,123,199,1) 42%,rgba(41,137,216,1) 55%,rgba(125,185,232,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(30,87,153,0) 0,rgba(30,87,153,0.4) 14%,rgba(32,94,162,0.79) 26%,rgba(38,123,199,1) 42%,rgba(41,137,216,1) 55%,rgba(125,185,232,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */  
+}
+
+#scene-space{
+    //height:@siteHeight / 4;
+}
+
+#scene-moon{
+    //height:@siteHeight / 4;
+}
+
+#scene-mars{
+    //height:@siteHeight / 4;
+}
+
+#Shuttle{
+    z-index:15;
+    position: absolute;
+    left:50vw - (@shuttleWidth/2);
+    bottom: @earthHeight;
+    width: @shuttleWidth;
+    height: @shuttleHeight;
+}
+#Right_rocket{
+    z-index:10;
+    position:absolute;
+    left:50vw;
+    bottom: @earthHeight;
+    width: @shuttleWidth / 2;
+    height: @shuttleHeight / 2;
+}
+
+#Left_rocket{
+
+z-index:10;
+    position:absolute;
+    left:50vw + @shuttleWidth;
+    bottom: @earthHeight;
+    width: @shuttleWidth / 2;
+    height: @shuttleHeight / 2;
+}
+
+#Earth{
+        z-index:10;
+        width:100vw;
+	    height:@earthHeight;
+	    background-color:forestgreen;
+        position:absolute;
+		bottom:0;	 
+}
+
+
+//De animimatie toestand zoals ze normaal zijn. (moet nog veranderen zodat je alles niet ziet op het normale punt en pas zichbaar zijn op het punt je er bent
+.titleAnimation{
+    width:100vw;
+    text-align:center;
+    position: absolute;
+    bottom:50vh;
+    font-size:1em;
+    opacity:0;
+}
+
+div .animation > h2{
+    width:100vw;
+    text-align:center;
+    position: absolute;
+    bottom:50vh;
+    font-size:1em;
+    opacity:0;
+}
+
+.titleActivation{
+    font-size:5em;
+    opacity:1;
+    
+}
+
+
+//Om dingen invisable te maken
+.hidden {display:none;}

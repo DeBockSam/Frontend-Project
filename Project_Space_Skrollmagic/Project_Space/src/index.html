@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>History of spaceflight</title>
+
+    <!-- JQuery -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js" defer></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js" defer></script>
+
+    <!-- Bootstrap -->
+    <link href="styles/normalize.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" defer></script>
+
+    <!--Tweenmax GSAP-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js" defer></script>
+
+    <!--Scrollmagic-->
+    <script src="js/outside_scripts/scrollmagic/jquery.scrollmagic.min.js" defer></script>
+    <script src="js/outside_scripts/scrollmagic/jquery.scrollmagic.debug.js" defer></script>
+
+    <!--Own Styles-->    
+    <link href="styles/space.css" rel="stylesheet" />
+    <!--Own js-->
+    <script src="js/ScrollController.js" defer></script>
+
+</head>
+
+<body>
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <h2 class="col-md-12">
+                    Test Info header:
+                </h2>
+                <p class="col-md-3">
+                    Offset Earth:
+                </p>
+                <p class="col-md-3">
+                    Offset Part 1:
+                </p>
+                <p class="col-md-3">
+                    Offset Part 2:
+                </p>
+                <p class="col-md-3">
+                    Site Height
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!--Container voor bootstrap-->
+    <main id="stars">
+        <div class="container-fluid">
+            <!--Deel Mars-->
+            <div class="row">
+                    <div class="wrap" id="scene-mars">
+                        <div class="animation" id="animation-mars">
+                            <h2 id="marsTitleAnimation">Looks like we made it, our destination Mars!</h2>
+                        </div>
+                    </div>
+            </div>
+            <!--Deel Maan-->
+            <div class="row">
+                    <div class="wrap" id="scene-moon">
+                        <div class="animation" id="animation-moon">
+                            <h2 class="titleAnimation" id="moonTitleAnimation">Look there is the moon!</h2>
+                        </div>
+                    </div>
+            </div>
+            <!--Deel ISS, Sputnik, Aap & mens-->
+            <div class="row">
+                    <div class="wrap" id="scene-space">
+                        <div class="animation" id="animation-space">
+                            <h2 class="titleAnimation" id="spaceTitleAnimation">Alright we made it into space!</h2>
+                        </div>
+                    </div>
+            </div>
+            <!--Deel Vertrek aarde-->
+            <div class="row">
+                    <div class="wrap" id="scene-earth">
+                        <div class="animation" id="animation-earth">
+                            <h2 class="titleAnimation" id="earthTitleAnimation">We are on earth</h2>
+                            <div id="Earth"></div>
+                        </div>
+                    </div>
+                <div class="wrap" id="scene-shuttle">
+                    <img id="Shuttle" src="assets/svg/Spaceship.svg" />
+                    <img id="Right_rocket" src="assets/svg/Side_Rocket.svg" />
+                    <img id="Left_rocket" src="assets/svg/Side_Rocket.svg" />
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
