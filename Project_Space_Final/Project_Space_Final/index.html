@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>History of spaceflight</title>
+
+    <!-- JQuery -->
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="src/js/foreign_scripts/jquery/Rumble/jquery.jrumble.1.3.min.js"></script>
+
+    <!-- Bootstrap -->
+    <!--<link href="src/styles/normalize.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" defer></script>-->
+
+    <!--Tweenmax GSAP-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.14.2/TweenMax.min.js"></script>
+    <script src="src/js/foreign_scripts/greensock/uncompressed/plugins/ScrollToPlugin.js"></script>
+
+    <script src="src/js/foreign_scripts/modernizr.custom.min.js"></script>
+    <!--Scrollmagic-->
+    <!--<script src="src/js/foreign_scripts/scrollmagic/mobile/iscroll-probe.js"></script>
+    <script src="src/js/foreign_scripts/scrollmagic/jquery.scrollmagic.min.js"></script>
+    <script src="src/js/foreign_scripts/scrollmagic/jquery.scrollmagic.debug.js"></script>-->
+    
+    <!--Own Styles-->
+    <link href="src/styles/space.css" rel="stylesheet" />
+    <!--Own js-->
+    <!--<script src="src/js/ScrollController.js"></script>-->
+</head>
+
+<body>
+    <!--Door body en siteWrapper zodanig in css aan te passen kunnen we er voor zorgen dat we geen scrollbar meer zien-->
+    <div id="outerWrapper">
+        <div id="innerWrapper">
+            <!--Stars background die ervoor zorgt dat we kunnen scrollen-->
+            <div id="stars">
+                <div id="atmosphere"></div>
+            </div>
+            <!--Bodem Om naar te navigeren bij opstarten-->
+            <div id="bottom"></div>
+
+            
+
+            <div id="content" class="wrap">
+                <object type="image/svg+xml" data="src/assets/svg/SpaceStation.svg" id="spaceStation">
+                    Your browser does not support SVG files.
+                    Please update your browser...
+                </object>
+                <div id="shuttleWrapper">
+                        <div id="shipShaker">
+                            <object type="image/svg+xml" data="src/assets/svg/Spaceship.svg" id="shuttle">
+                                Your browser does not support SVG files.
+                                Please update your browser...
+                            </object>
+                        </div>
+                    </div>
+                <div id="earth"></div>
+            </div>
+        </div>
+    </div>
+    <script src="src/js/SamAnimationController.js"></script>
+</body>
+</html>

@@ -28,6 +28,7 @@ $(document).ready(function($) {
             console.log("Geolocation is not supported by this browser.");
         }
     })();
+
     //endregion
     //region Via geolocatie de weerstatus opvragen
     function showPosition(position) {
