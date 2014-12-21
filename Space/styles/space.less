@@ -1,0 +1,75 @@
+/*We bepalen de grootte via vmin: hij past zich aan aan de min grootte (width of heigth)
+    Dit zowel voor de svgs als voor de tekst
+*/
+@shipsize: 15vw;
+
+body
+{
+  margin:0;     /* Reset Browser margins */
+  //height:100vh; /* Blijkbaar om bug in chrome te voorkomen */
+  height:100%;
+  width:100vw;  /* zelfde als hierboven */
+  overflow-x: hidden;
+  position:relative;
+}
+
+#spaceship {
+  width:@shipsize;
+  position:absolute;
+  bottom: 0px;
+  left:50% - (@shipsize/2);
+  user-select: none;
+  z-index: 10;
+}
+#stars{
+  //height:1500vh;
+  width:100%;
+  display:block;
+  //margin-bottom:-200vh;
+  background: rgb(1,12,30); /* Old browsers */
+  background-image: url('../assets/images/stars.png') , -moz-linear-gradient(top,  rgba(1,12,30,1) 54%, rgba(3,20,51,1) 65%, rgba(16,39,79,1) 77%, rgba(30,87,153,1) 100%); /* FF3.6+ */
+  background-image: url('../assets/images/stars.png') , -webkit-gradient(linear, left top, left bottom, color-stop(54%,rgba(1,12,30,1)), color-stop(65%,rgba(3,20,51,1)), color-stop(77%,rgba(16,39,79,1)), color-stop(100%,rgba(30,87,153,1))); /* Chrome,Safari4+ */
+  background-image: url('../assets/images/stars.png') , -webkit-linear-gradient(top,  rgba(1,12,30,1) 54%,rgba(3,20,51,1) 65%,rgba(16,39,79,1) 77%,rgba(30,87,153,1) 100%); /* Chrome10+,Safari5.1+ */
+  background-image: url('../assets/images/stars.png') , -o-linear-gradient(top,  rgba(1,12,30,1) 54%,rgba(3,20,51,1) 65%,rgba(16,39,79,1) 77%,rgba(30,87,153,1) 100%); /* Opera 11.10+ */
+  background-image: url('../assets/images/stars.png') , -ms-linear-gradient(top,  rgba(1,12,30,1) 54%,rgba(3,20,51,1) 65%,rgba(16,39,79,1) 77%,rgba(30,87,153,1) 100%); /* IE10+ */
+  background-image: url('../assets/images/stars.png') , linear-gradient(to bottom,  rgba(1,12,30,1) 54%,rgba(3,20,51,1) 65%,rgba(16,39,79,1) 77%,rgba(30,87,153,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#010c1e', endColorstr='#1e5799',GradientType=0 ); /* IE6-9 */
+
+  background-position: top center;
+  background-repeat: repeat;
+}
+
+#earth{
+  background-color: greenyellow;
+  height: 100px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  z-index: 1;
+}
+
+.noselect * {
+  user-select: none;
+}
+
+
+/* SCROLLMAGIC */
+
+.container {
+  height: 100%;
+  margin: 0 auto;
+  max-width: 900px;
+  position: relative;
+  width: 100%;
+}
+#content-wrapper {
+  height: 100%;
+  min-height: 500px;
+  width: 100%;
+}
+.scroll-magic-section{
+  height: 100%;
+  position:relative
+}
+
+

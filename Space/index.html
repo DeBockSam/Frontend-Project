@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="styles/space.css"/>
+</head>
+<body>
+    <!-- We regelen de size en width dynamisch aan de hand van de screen width
+    vh en vw: Length units representing 1% of the viewport size for viewport width (vw), height (vh), the smaller of the two (vmin), or the larger of the two (vmax)
+    -->
+
+    <div id="space">
+    <div id="stars">
+    <section id="pin" class="scroll-magic-section">
+
+    <object type="image/svg+xml" data="assets/svg/Spaceship.svg" id="spaceship">Your browser does not support SVG files</object>
+        <div style="display: block; height: 3000px;"></div>
+        <div id="triggerLiftOff"></div>
+        <div style="display: block; height: 1000px;" id="liftOff"></div>
+        <div id="triggerStart"></div>
+        <div style="display: block; height: 1000px;" id="beforeLiftOff"></div>
+        <div id="earth"></div>
+    </section>
+    </div>
+    </div>
+
+
+    <div id="bottom"></div>
+
+    <script src="scripts/greensock/TweenMax.js"></script>
+    <script src="scripts/jquery/jquery-2.1.1.js"></script>
+    <script src="scripts/scrollmagic/jquery.scrollmagic.js"></script>
+    <script src="scripts/scrollmagic/jquery.scrollmagic.debug.js"></script>
+    <script src="scripts/controller/spacecontroller.js"></script>
+
+
+    <script>
+
+
+    </script>
+</body>
+</html>
+
+<!-- DEFER
+scripts defer toepassen!-->
+
+<!-- CONTROLLER
+we hebben maar 1 controller de scroll container (in dit geval ons scherm).
+De controller omschrijft scenes (bewegingen)
+
+beschrijft ook of dat je horizontaal of verticaal scrolled
+-->
+
+<!-- SCENE
+wat gebeurt er wanneer >wanneer = welke scroll positie -->
