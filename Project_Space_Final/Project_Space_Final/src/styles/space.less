@@ -26,6 +26,19 @@
 @stationWidth: 40vw;
 @stationHeight:40vh;
 
+//Sputnik Parameters
+@sputnikWidth: 25vw;
+@sputnikHeight: 25vh;
+
+//Astronaut parameters
+@astronautFullWidth:35vw;
+@astronautFullHeight:35vh;
+
+//Monkey parameters
+@monkeyWidth:25vw;
+@monkeyHeight:25vh;
+
+
 //Atmosphere parameters
 @atmosphereColor:rgba(125,185,232,1);
 @atmosphereColorLowOpacity:rgba(125,185,232,0.6);
@@ -103,13 +116,15 @@ body {
 #atmosphere{
     height:4000px;
     width:100vw;
-    background: -moz-linear-gradient(top,  rgba(30,87,153,0) 0, rgba(30,87,153,0.4) 14%, rgba(32,94,162,0.79) 26%, rgba(38,123,199,1) 42%, rgba(41,137,216,1) 55%, rgba(125,185,232,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0,rgba(30,87,153,0)), color-stop(5%,rgba(30,87,153,0.4)), color-stop(14%,rgba(32,94,162,0.79)), color-stop(26%,rgba(38,123,199,1)), color-stop(42%,rgba(41,137,216,1)), color-stop(100%,rgba(125,185,232,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  rgba(30,87,153,0) 0,rgba(30,87,153,0.4) 14%,rgba(32,94,162,0.79) 26%,rgba(38,123,199,1) 42%,rgba(41,137,216,1) 55%,rgba(125,185,232,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  rgba(30,87,153,0) 0,rgba(30,87,153,0.4) 14%,rgba(32,94,162,0.79) 26%,rgba(38,123,199,1) 42%,rgba(41,137,216,1) 55%,rgba(125,185,232,1) 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  rgba(30,87,153,0) 0,rgba(30,87,153,0.4) 14%,rgba(32,94,162,0.79) 26%,rgba(38,123,199,1) 42%,rgba(41,137,216,1) 55%,rgba(125,185,232,1) 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  rgba(30,87,153,0) 0,rgba(30,87,153,0.4) 14%,rgba(32,94,162,0.79) 26%,rgba(38,123,199,1) 42%,rgba(41,137,216,1) 55%,rgba(125,185,232,1) 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#001e5799', endColorstr='#7db9e8',GradientType=0 ); /* IE6-9 */  
+
+    background: -moz-linear-gradient(top,  rgba(0,44,99,0) 0%, rgba(0,44,99,0.16) 1%, rgba(3,52,112,0.62) 4%, rgba(12,74,150,0.88) 13%, rgba(14,100,180,1) 17%, rgba(18,146,232,1) 24%, rgba(53,162,234,1) 37%, rgba(53,162,234,1) 99%, rgba(53,162,234,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,44,99,0)), color-stop(1%,rgba(0,44,99,0.16)), color-stop(4%,rgba(3,52,112,0.62)), color-stop(13%,rgba(12,74,150,0.88)), color-stop(17%,rgba(14,100,180,1)), color-stop(24%,rgba(18,146,232,1)), color-stop(37%,rgba(53,162,234,1)), color-stop(99%,rgba(53,162,234,1)), color-stop(100%,rgba(53,162,234,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(0,44,99,0) 0%,rgba(0,44,99,0.16) 1%,rgba(3,52,112,0.62) 4%,rgba(12,74,150,0.88) 13%,rgba(14,100,180,1) 17%,rgba(18,146,232,1) 24%,rgba(53,162,234,1) 37%,rgba(53,162,234,1) 99%,rgba(53,162,234,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(0,44,99,0) 0%,rgba(0,44,99,0.16) 1%,rgba(3,52,112,0.62) 4%,rgba(12,74,150,0.88) 13%,rgba(14,100,180,1) 17%,rgba(18,146,232,1) 24%,rgba(53,162,234,1) 37%,rgba(53,162,234,1) 99%,rgba(53,162,234,1) 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(0,44,99,0) 0%,rgba(0,44,99,0.16) 1%,rgba(3,52,112,0.62) 4%,rgba(12,74,150,0.88) 13%,rgba(14,100,180,1) 17%,rgba(18,146,232,1) 24%,rgba(53,162,234,1) 37%,rgba(53,162,234,1) 99%,rgba(53,162,234,1) 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(0,44,99,0) 0%,rgba(0,44,99,0.16) 1%,rgba(3,52,112,0.62) 4%,rgba(12,74,150,0.88) 13%,rgba(14,100,180,1) 17%,rgba(18,146,232,1) 24%,rgba(53,162,234,1) 37%,rgba(53,162,234,1) 99%,rgba(53,162,234,1) 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00002c63', endColorstr='#35a2ea',GradientType=0 ); /* IE6-9 */
+
     position:absolute;
     bottom:0;
     right:0;
@@ -134,96 +149,83 @@ body {
     height: @stationHeight;
     z-index:15;
     position: absolute;
-    left:50vw - (@shuttleWidth/2);
-    bottom: 50vh - (@stationHeight / 2);
-    width: 75vw;
+    left:50vw + (@shuttleWidth/2);
+    //bottom: 50vh - (@stationHeight / 2);
+    top: -50vh;
+    //width: 75vw;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//Shuttle midden scherm
-/*#shuttle{
+#sputnik{
+    width: @sputnikWidth;
+    height: @sputnikHeight;
     z-index:15;
-    position: fixed;
-    left:50vw - (@shuttleWidth/2);
-    bottom: 50vh;
-    width: @shuttleWidth;
-    height: @shuttleHeight;
-}*/
+    position: absolute;
+    left:30vw - (@sputnikWidth / 2);
+    top:-50vh;
+}
 
+#shipAndCable {
+    width: @astronautFullWidth *0.8;
+    height: @astronautFullHeight *0.8;
+    z-index: 10;
+    position: absolute;
+    left: 95vw - @astronautFullWidth /1.4;
+    top: 75vh - @astronautFullHeight /1.2;
+    -moz-transform: scale(0,0);
+    -ms-transform: scale(0,0);
+    -o-transform: scale(0,0);
+    -webkit-transform: scale(0,0);
+    transform: scale(0,0);
+}
 
+#astronaut {
+    width: @astronautFullWidth;
+    height: @astronautFullHeight;
+    z-index: 15;
+    position: absolute;
+    left: 95vw - @astronautFullWidth;
+    top: 90vh - @astronautFullHeight;
+    -moz-transform: scale(0,0);
+    -ms-transform: scale(0,0);
+    -o-transform: scale(0,0);
+    -webkit-transform: scale(0,0);
+    transform: scale(0,0);
+}
 
-#Right_rocket{
+#monkey {
+    width: @monkeyWidth;
+    height: @monkeyHeight;
+    z-index: 15;
+    position: absolute;
+    left: 1vh;
+    top: 10vh;
+    -moz-transform: scale(0,0);
+    -ms-transform: scale(0,0);
+    -o-transform: scale(0,0);
+    -webkit-transform: scale(0,0);
+    transform: scale(0,0);
+}
+
+#moonSurface{
     z-index:10;
+    width:100vw;
     position:absolute;
-    left:50vw;
-    bottom: @earthHeight;
-    width: @shuttleWidth / 2;
-    height: @shuttleHeight / 2;
+	bottom:-50vh;
+    left:0;
 }
 
-#Left_rocket{
-    z-index:10;
-    position:absolute;
-    left:50vw + @shuttleWidth;
-    bottom: @earthHeight;
-    width: @shuttleWidth / 2;
-    height: @shuttleHeight / 2;
+#marsSurface {
+    z-index: 10;
+    width: 100vw;
+    position: absolute;
+    top: -50vh;
+    left: 0;
+    -moz-transform: rotateX(180deg);
+    -ms-transform: rotateX(180deg);
+    -o-transform: rotateX(180deg);
+    -webkit-transform: rotateX(180deg);
+    transform: rotateX(180deg);
 }
-
-/*#earth{
-        z-index:10;
-        width:100vw;
-	    height:@earthHeight;
-	    background-color:forestgreen;
-        position:absolute;
-		bottom:0;	 
-}*/
-
-/* SCROLLMAGIC */
-
-.scroll-magic-section{
-  height: 100%;
-  position:relative;
-}
-
-
 
 //Om dingen invisable te maken
 .hidden {display:none;}
