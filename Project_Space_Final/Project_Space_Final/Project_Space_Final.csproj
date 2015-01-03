@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="index.html" />
+    <Content Include="src\assets\images\ShutleFlame_01.png" />
     <Content Include="src\assets\images\stars.png" />
     <Content Include="src\assets\svg\Astronaut.svg" />
     <Content Include="src\assets\svg\Astronaut_Cable_Ship.svg" />

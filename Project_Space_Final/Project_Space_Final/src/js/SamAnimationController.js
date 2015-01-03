@@ -137,9 +137,14 @@ function CheckAnimations() {
 
     //#region Flame Animation
     if (current < earthAnimationPos && scrollDirection == "UP") {
-        //alert("roep restart op");
-        flameAnimationON = true;
-        flameAnimation.restart();
+        
+        if (current >= moonAnimateOUTPos && current <= moonAnimateINPos) {
+            //geen vlammetje oproepen want hier land hij op de maan
+        } else {
+            //alert("roep restart op");
+            flameAnimationON = true;
+            flameAnimation.restart();
+        }
     }
 
     if (current < earthAnimationPos && scrollDirection == "DOWN") {
@@ -340,7 +345,8 @@ function CheckAnimations() {
     if (current <= moonAnimateINPos && moonAnimationIN != true && moonAnimationOUT == false) {
         moonAnimationIN = true;
         TweenMax.fromTo("#shuttleWrapper", 1, { css: { bottom: (windowheight * 0.50) - shuttleHeight } }, { css: { bottom: earthHeight } });
-        TweenMax.fromTo("#moonSurface", 1, { css: { bottom: (-windowheight)/2 } }, { css: { bottom: -20 } });
+        TweenMax.fromTo("#moonSurface", 1, { css: { bottom: (-windowheight) / 2 } }, { css: { bottom: -20 } });
+        TweenMax.fromTo("#shuttleFire", 1, { css: { bottom: (windowheight * 0.50) - shuttleHeight - 10 } }, { css: { bottom: earthHeight - 10 } });
 
         TweenMax.fromTo("#moonMessage", 1, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
     }
@@ -350,6 +356,7 @@ function CheckAnimations() {
         moonAnimationIN = false;
         TweenMax.fromTo("#moonSurface", 1, { css: { bottom: -20 } }, { css: { bottom: (-windowheight) / 2 } });
         TweenMax.fromTo("#shuttleWrapper", 1, { css: { bottom: earthHeight } }, { css: { bottom: (windowheight * 0.50) - shuttleHeight } });
+        TweenMax.fromTo("#shuttleFire", 1, { css: { bottom: earthHeight - 10 } }, { css: { bottom: (windowheight * 0.50) - shuttleHeight - 10 } });
 
         TweenMax.fromTo("#moonMessage", 1, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
     }
@@ -360,6 +367,7 @@ function CheckAnimations() {
         moonAnimationOUT = true;
         moonAnimationIN = false;
         TweenMax.fromTo("#shuttleWrapper", 1, { css: { bottom: earthHeight } }, { css: { bottom: (windowheight * 0.50) - shuttleHeight } });
+        TweenMax.fromTo("#shuttleFire", 1, { css: { bottom: earthHeight - 10 } }, { css: { bottom: (windowheight * 0.50) - shuttleHeight - 10 } });
         TweenMax.fromTo("#moonSurface", 1, { css: { bottom: -20 } }, { css: { bottom: (-windowheight) / 2 } });
 
         TweenMax.fromTo("#moonMessage", 1, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
@@ -371,6 +379,7 @@ function CheckAnimations() {
         moonAnimationIN = true;
         TweenMax.fromTo("#moonSurface", 1, { css: { bottom: (-windowheight) / 2 } }, { css: { bottom: -20 } });
         TweenMax.fromTo("#shuttleWrapper", 1, { css: { bottom: (windowheight * 0.50) - shuttleHeight } }, { css: { bottom: earthHeight } });
+        TweenMax.fromTo("#shuttleFire", 1, { css: { bottom: earthHeight - 10 } }, { css: { bottom: (windowheight * 0.50) - shuttleHeight - 10 } });
 
         TweenMax.fromTo("#moonMessage", 1, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
     }
