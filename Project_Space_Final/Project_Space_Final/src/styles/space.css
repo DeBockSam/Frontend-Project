@@ -61,6 +61,23 @@ body {
   position: absolute;
   bottom: 0;
 }
+#earthIntroMessage {
+  position: absolute;
+  z-index: 10;
+  width: 80%;
+  height: 10vh;
+  margin-left: 10vw;
+  margin-right: 10vw;
+  margin-top: 10vh;
+  color: whitesmoke;
+  -ms-word-wrap: hyphenate;
+  word-wrap: hyphenate;
+  opacity: 0;
+}
+#earthIntroMessage #earthIntroTitle {
+  font-size: 2em;
+  margin-bottom: 2vh;
+}
 #atmosphere {
   height: 4000px;
   width: 100vw;
@@ -101,6 +118,22 @@ body {
   position: absolute;
   left: 60vw;
   top: -50vh;
+}
+#issMessage {
+  position: absolute;
+  z-index: 10;
+  width: 50vw;
+  height: 80vh;
+  margin-left: 10vw;
+  margin-top: 10vh;
+  color: whitesmoke;
+  -ms-word-wrap: hyphenate;
+  word-wrap: hyphenate;
+  opacity: 0;
+}
+#issMessage #issMessageTitle {
+  font-size: 2em;
+  margin-bottom: 20vh;
 }
 #sputnik {
   width: 25vw;

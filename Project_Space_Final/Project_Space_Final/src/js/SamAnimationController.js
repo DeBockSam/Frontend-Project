@@ -68,6 +68,8 @@ window.onload = function () {
     //zorgt voor nodige setup zoals rumble selector enz op elementen
     AnimationsSetup();
 
+    
+
     window.onscroll = function (event) {
         // called when the window is scrolled.
         UpdateInfo();
@@ -100,8 +102,9 @@ function CheckScrollDirection() {
 }
 
 function AnimationsSetup() {
-    //initialize jRumble on selectors die rumble nodig hebben
-    //moeten shuttle in wrapper steken anders werkt het niet omdat die absoluut gepositioneerd staat
+    //Animaties die gebeuren bij het opstarten
+
+    TweenMax.fromTo("#earthIntroMessage", 1, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
     
 }
 
@@ -117,12 +120,16 @@ function CheckAnimations() {
         earthAnimation = true;
         //alert('hide earth');
         TweenMax.fromTo("#earth", 1, { css: { bottom: 0 } }, { css: { bottom: -(earthHeight) } });
+
+        TweenMax.fromTo("#earthIntroMessage", 1, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
     }
 
     if (current > earthAnimationPos && earthAnimation == true) {
         earthAnimation = false;
         //alert('show earth');
         TweenMax.fromTo("#earth", 1, { css: { bottom: -(earthHeight) } }, { css: { bottom: 0 } });
+
+        TweenMax.fromTo("#earthIntroMessage", 1, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
     }
     //#endregion
 
@@ -161,13 +168,16 @@ function CheckAnimations() {
         issAnimatedIN = true;
         //alert("eerste animatie");
         TweenMax.fromTo("#spaceStation", 1.5, { css: { top: -windowheight / 2 } }, { css: { top: (windowheight / 2) - (shuttleHeight / 2) } });
+
+        TweenMax.fromTo("#issMessage", 2, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
     }
 
 
     if (current > issAnimateINPos && issAnimatedIN == true) {
         issAnimatedIN = false;
         TweenMax.fromTo("#spaceStation", 1.5, { css: { top: (windowheight / 2) - (shuttleHeight / 2) } }, { css: { top: -windowheight / 2 } });
-        //higherAtmosphereOpacity();
+
+        TweenMax.fromTo("#issMessage", 1, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
     }
     //#endregion
 
@@ -177,6 +187,9 @@ function CheckAnimations() {
         issAnimatedIN = false;
         //alert("zou moeten uit animeren naar onder");
         TweenMax.fromTo("#spaceStation", 1.5, { css: { top: (windowheight / 2) - (shuttleHeight / 2) } }, { css: { top: 3 * (windowheight / 2) } });
+
+
+        TweenMax.fromTo("#issMessage", 1, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
     }
 
 
@@ -185,7 +198,8 @@ function CheckAnimations() {
         issAnimatedIN = true;
         //alert("zou moeten in animeren van onder");
         TweenMax.fromTo("#spaceStation", 1.5, { css: { top: 3 * (windowheight / 2) } }, { css: { top: (windowheight / 2) - (shuttleHeight / 2) } });
-        //higherAtmosphereOpacity();
+
+        TweenMax.fromTo("#issMessage", 2, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
     }
     //#endregion
     //#endregion

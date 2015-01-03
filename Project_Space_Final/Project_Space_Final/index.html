@@ -20,10 +20,6 @@
     <script src="src/js/foreign_scripts/greensock/uncompressed/plugins/ScrollToPlugin.js"></script>
 
     <script src="src/js/foreign_scripts/modernizr.custom.min.js"></script>
-    <!--Scrollmagic-->
-    <!--<script src="src/js/foreign_scripts/scrollmagic/mobile/iscroll-probe.js"></script>
-    <script src="src/js/foreign_scripts/scrollmagic/jquery.scrollmagic.min.js"></script>
-    <script src="src/js/foreign_scripts/scrollmagic/jquery.scrollmagic.debug.js"></script>-->
     
     <!--Own Styles-->
     <link href="src/styles/space.css" rel="stylesheet" />
@@ -42,7 +38,7 @@
             <!--Bodem Om naar te navigeren bij opstarten-->
             <div id="bottom"></div>
 
-            
+
 
             <div id="content" class="wrap">
                 <object type="image/svg+xml" data="src/assets/svg/Mars_Surface.svg" id="marsSurface">
@@ -65,31 +61,57 @@
                     Please update your browser...
                 </object>
                 <object type="image/svg+xml" data="src/assets/svg/Astronaut.svg" id="astronaut">
-                            Your browser does not support SVG files.
-                            Please update your browser...
+                    Your browser does not support SVG files.
+                    Please update your browser...
                 </object>
-                    
-                
+
+
                 <object type="image/svg+xml" data="src/assets/svg/Sputnik1.svg" id="sputnik">
                     Your browser does not support SVG files.
                     Please update your browser...
                 </object>
+
+                <div id="issMessage">
+                    <span id="issMessageTitle">We’ve reached the ISS (International Space Station)</span>
+                    <br />
+                    <span>
+                        We’re 400 km away from the earth.
+                        ISS serves as a microgravity and space environment research laboratory in which crew members conduct experiments.
+                        We can take a break here before heading off to Mars.
+                    </span>
+                </div>
+
                 <object type="image/svg+xml" data="src/assets/svg/SpaceStation.svg" id="spaceStation">
                     Your browser does not support SVG files.
                     Please update your browser...
                 </object>
+
+
                 <div id="shuttleWrapper">
-                        <div id="shipShaker">
-                            <object type="image/svg+xml" data="src/assets/svg/Spaceship.svg" id="shuttle">
-                                Your browser does not support SVG files.
-                                Please update your browser...
-                            </object>
-                        </div>
+                    <div id="shipShaker">
+                        <object type="image/svg+xml" data="src/assets/svg/Spaceship.svg" id="shuttle">
+                            Your browser does not support SVG files.
+                            Please update your browser...
+                        </object>
+                    </div>
                 </div>
+
+                <div id="earthIntroMessage">
+                    <span id="earthIntroTitle">You are on Earth, Your home planet.</span>
+                    <br/>
+                    <span>
+                        Your rocket is on a mission to Mars! I wonder what we'll see on the way
+                    </span>
+                </div>
+
+
                 <div id="earth"></div>
             </div>
         </div>
     </div>
+
+    <script src="src/js/foreign_scripts/jquery/Bigtext/jquery.smartresize.js"></script>
+    <script src="src/js/foreign_scripts/jquery/Bigtext/bigtext.js"></script>
     <script src="src/js/SamAnimationController.js"></script>
 </body>
 </html>
