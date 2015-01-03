@@ -211,13 +211,17 @@ function CheckAnimations() {
         sputnikAnimatedIN = true;
         //alert("eerste animatie");
         TweenMax.fromTo("#sputnik", 1.5, { css: { top: -windowheight / 2 } }, { css: { top: (windowheight / 2) - (shuttleHeight / 2) } });
+
+
+        TweenMax.fromTo("#sputnikMessage", 2, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
     }
 
 
     if (current > sputnikAnimateINPos && sputnikAnimatedIN == true) {
         sputnikAnimatedIN = false;
         TweenMax.fromTo("#sputnik", 1.5, { css: { top: (windowheight / 2) - (shuttleHeight / 2) } }, { css: { top: -windowheight / 2 } });
-        //higherAtmosphereOpacity();
+
+        TweenMax.fromTo("#sputnikMessage", 1, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
     }
     //#endregion
 
@@ -227,6 +231,8 @@ function CheckAnimations() {
         sputnikAnimatedIN = false;
         //alert("zou moeten uit animeren naar onder");
         TweenMax.fromTo("#sputnik", 1.5, { css: { top: (windowheight / 2) - (shuttleHeight / 2) } }, { css: { top: 3 * (windowheight / 2) } });
+
+        TweenMax.fromTo("#sputnikMessage", 1, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
     }
 
 
@@ -235,7 +241,8 @@ function CheckAnimations() {
         sputnikAnimatedIN = true;
         //alert("zou moeten in animeren van onder");
         TweenMax.fromTo("#sputnik", 1.5, { css: { top: 3 * (windowheight / 2) } }, { css: { top: (windowheight / 2) - (shuttleHeight / 2) } });
-        //higherAtmosphereOpacity();
+
+        TweenMax.fromTo("#sputnikMessage", 2, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
     }
     //#endregion
     //#endregion
@@ -248,6 +255,9 @@ function CheckAnimations() {
         TweenMax.fromTo("#shipAndCable", 0.5, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
         TweenMax.fromTo("#monkey", 0.5, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
         TweenMax.fromTo("#astronaut", 0.4, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
+
+        TweenMax.fromTo("#monkeyMessage", 0.5, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
+        TweenMax.fromTo("#astronautMessage", 0.4, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
     }
 
 
@@ -256,6 +266,9 @@ function CheckAnimations() {
         TweenMax.fromTo("#shipAndCable", 0.5, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0  } });
         TweenMax.fromTo("#monkey", 0.5, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
         TweenMax.fromTo("#astronaut", 0.6, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
+
+        TweenMax.fromTo("#monkeyMessage", 0.5, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
+        TweenMax.fromTo("#astronautMessage", 0.6, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
     }
     //#endregion
 
@@ -266,6 +279,9 @@ function CheckAnimations() {
         TweenMax.fromTo("#shipAndCable", 0.5, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
         TweenMax.fromTo("#monkey", 0.5, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
         TweenMax.fromTo("#astronaut", 0.6, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
+
+        TweenMax.fromTo("#monkeyMessage", 0.5, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
+        TweenMax.fromTo("#astronautMessage", 0.6, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
     }
 
 
@@ -275,6 +291,9 @@ function CheckAnimations() {
         TweenMax.fromTo("#shipAndCable", 0.5, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
         TweenMax.fromTo("#monkey", 0.5, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
         TweenMax.fromTo("#astronaut", 0.4, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
+
+        TweenMax.fromTo("#monkeyMessage", 0.5, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
+        TweenMax.fromTo("#astronautMessage", 0.4, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
     }
     //#endregion
     //#endregion

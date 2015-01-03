@@ -143,6 +143,22 @@ body {
   left: 17.5vw;
   top: -50vh;
 }
+#sputnikMessage {
+  position: absolute;
+  z-index: 10;
+  width: 50vw;
+  height: 80vh;
+  right: 10vw;
+  margin-top: 10vh;
+  color: whitesmoke;
+  -ms-word-wrap: hyphenate;
+  word-wrap: hyphenate;
+  opacity: 0;
+}
+#sputnikMessage #sputnikMessageTitle {
+  font-size: 2em;
+  margin-bottom: 20vh;
+}
 #shipAndCable {
   width: 28vw;
   height: 28vh;
@@ -169,6 +185,18 @@ body {
   -webkit-transform: scale(0, 0);
   transform: scale(0, 0);
 }
+#astronautMessage {
+  position: absolute;
+  z-index: 10;
+  width: 30vw;
+  height: 80vh;
+  right: 10vw;
+  margin-top: 20vh;
+  color: whitesmoke;
+  -ms-word-wrap: hyphenate;
+  word-wrap: hyphenate;
+  opacity: 0;
+}
 #monkey {
   width: 25vw;
   height: 25vh;
@@ -181,6 +209,18 @@ body {
   -o-transform: scale(0, 0);
   -webkit-transform: scale(0, 0);
   transform: scale(0, 0);
+}
+#monkeyMessage {
+  position: absolute;
+  z-index: 10;
+  width: 30vw;
+  height: 50vh;
+  left: 10vw;
+  margin-top: 50vh;
+  color: whitesmoke;
+  -ms-word-wrap: hyphenate;
+  word-wrap: hyphenate;
+  opacity: 0;
 }
 #moonSurface {
   z-index: 10;
