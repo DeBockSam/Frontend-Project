@@ -299,17 +299,55 @@ body {
     left:0;
 }
 
+#moonMessage {
+    position:absolute;
+    z-index: 10;
+    width: 50vw;
+    height: 80vh;
+    left: 10vw;
+    margin-top: 10vh;
+    color: whitesmoke;
+    -ms-word-wrap: hyphenate;
+    word-wrap: hyphenate;
+    opacity:0;
+
+    #moonMessageTitle{
+        font-size:2em;
+        margin-bottom:20vh;
+    }
+
+}
+
 #marsSurface {
     z-index: 10;
     width: 100vw;
     position: absolute;
-    top: -50vh;
+    top: -70vh;
     left: 0;
     -moz-transform: rotateX(180deg);
     -ms-transform: rotateX(180deg);
     -o-transform: rotateX(180deg);
     -webkit-transform: rotateX(180deg);
     transform: rotateX(180deg);
+}
+
+#marsMessage {
+    position:absolute;
+    z-index: 12;
+    width: 50vw;
+    height: 50vh;
+    left: 25vw;
+    margin-top: 75vh;
+    color: whitesmoke;
+    -ms-word-wrap: hyphenate;
+    word-wrap: hyphenate;
+    opacity:0;
+
+    #marsMessageTitle{
+        font-size:5em;
+        margin-bottom:20vw;
+    }
+
 }
 
 //Om dingen invisable te maken

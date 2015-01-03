@@ -80,6 +80,16 @@ window.onload = function () {
         //kijkt of animatie moet gedaan worden of beeindigd worden
         CheckAnimations();
     }
+
+    window.onresize = function (event) {
+        startScroll = window.scrollY + windowheight;
+        windowheight = $(window).height();
+        earthHeight = windowheight * 0.10;
+        shuttleHeight = windowheight * 0.20;
+        window.location.reload();
+        console.log("Initial ScrollPosition: " + startScroll);
+        UpdateInfo();
+    }
 }
 
 function UpdateInfo() {
@@ -169,7 +179,7 @@ function CheckAnimations() {
         //alert("eerste animatie");
         TweenMax.fromTo("#spaceStation", 1.5, { css: { top: -windowheight / 2 } }, { css: { top: (windowheight / 2) - (shuttleHeight / 2) } });
 
-        TweenMax.fromTo("#issMessage", 2, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
+        TweenMax.fromTo("#issMessage", 1.5, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
     }
 
 
@@ -303,14 +313,18 @@ function CheckAnimations() {
     if (current <= moonAnimateINPos && moonAnimationIN != true && moonAnimationOUT == false) {
         moonAnimationIN = true;
         TweenMax.fromTo("#shuttleWrapper", 1, { css: { bottom: (windowheight * 0.50) - shuttleHeight } }, { css: { bottom: earthHeight } });
-        TweenMax.fromTo("#moonSurface", 1, { css: { bottom: -windowheight} }, { css: { bottom: -(windowheight*0.15) } });
+        TweenMax.fromTo("#moonSurface", 1, { css: { bottom: (-windowheight)/2 } }, { css: { bottom: -20 } });
+
+        TweenMax.fromTo("#moonMessage", 1, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
     }
 
 
     if (current > moonAnimateINPos && moonAnimationIN == true) {
         moonAnimationIN = false;
-        TweenMax.fromTo("#moonSurface", 1, { css: { bottom: -(windowheight * 0.15) } }, { css: { bottom: -windowheight } });
+        TweenMax.fromTo("#moonSurface", 1, { css: { bottom: -20 } }, { css: { bottom: (-windowheight) / 2 } });
         TweenMax.fromTo("#shuttleWrapper", 1, { css: { bottom: earthHeight } }, { css: { bottom: (windowheight * 0.50) - shuttleHeight } });
+
+        TweenMax.fromTo("#moonMessage", 1, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
     }
     //#endregion
 
@@ -319,15 +333,19 @@ function CheckAnimations() {
         moonAnimationOUT = true;
         moonAnimationIN = false;
         TweenMax.fromTo("#shuttleWrapper", 1, { css: { bottom: earthHeight } }, { css: { bottom: (windowheight * 0.50) - shuttleHeight } });
-        TweenMax.fromTo("#moonSurface", 1, { css: { bottom: -(windowheight * 0.15) } }, { css: { bottom: -(windowheight / 2) } });
+        TweenMax.fromTo("#moonSurface", 1, { css: { bottom: -20 } }, { css: { bottom: (-windowheight) / 2 } });
+
+        TweenMax.fromTo("#moonMessage", 1, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
     }
 
 
     if (current > moonAnimateOUTPos && moonAnimationIN != true && moonAnimationOUT == true) {
         moonAnimationOUT = false;
         moonAnimationIN = true;
-        TweenMax.fromTo("#moonSurface", 1, { css: { bottom: -(windowheight / 2) } }, { css: { bottom: -(windowheight * 0.15) } });
+        TweenMax.fromTo("#moonSurface", 1, { css: { bottom: (-windowheight) / 2 } }, { css: { bottom: -20 } });
         TweenMax.fromTo("#shuttleWrapper", 1, { css: { bottom: (windowheight * 0.50) - shuttleHeight } }, { css: { bottom: earthHeight } });
+
+        TweenMax.fromTo("#moonMessage", 1, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
     }
     //#endregion
     //#endregion
@@ -336,12 +354,16 @@ function CheckAnimations() {
     if (current <= marsAnimateINOUTPos && marsAnimation != true) {
         marsAnimation = true;
         TweenMax.fromTo("#marsSurface", 0.7, { css: { top: -windowheight / 2 } }, { css: { top: 0 } });
+
+        TweenMax.fromTo("#marsMessage", 1, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
     }
 
     if (current > marsAnimateINOUTPos && marsAnimation == true) {
         marsAnimation = false;
         //alert('show earth');
         TweenMax.fromTo("#marsSurface", 1.5, { css: { top: 0 } }, { css: { top: -windowheight / 2 } });
+
+        TweenMax.fromTo("#marsMessage", 1, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
     }
     //#endregion
 }
