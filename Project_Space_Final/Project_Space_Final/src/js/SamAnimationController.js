@@ -119,10 +119,10 @@ function AnimationsSetup() {
     TweenMax.fromTo("#earthIntroMessage", 1, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
 
     //vlam animatie aanmaken en direct pauzeren
-    flameAnimation = new TimelineMax({ repeat: -1, yoyo: true })
-            .add(TweenMax.to("#shuttleFire", 0.1, { opacity: 1 }))
+    flameAnimation = new TimelineMax({ repeat: 0, yoyo: true })
+            .add(TweenMax.to("#shuttleFire", 0.2, { opacity: 1 }))
             .add(TweenMax.to("#shuttleFire", 0.1, { opacity: 0 }))
-            .add(TweenMax.to("#shuttleFire", 0.1, { opacity: 1 }))
+            .add(TweenMax.to("#shuttleFire", 0.2, { opacity: 1 }))
             .add(TweenMax.to("#shuttleFire", 0.1, { opacity: 0 }));
     flameAnimation.pause();
     
@@ -136,14 +136,14 @@ function CheckAnimations() {
     });
 
     //#region Flame Animation
-    if (current < earthAnimationPos && scrollDirection == "UP" && flameAnimationON != true) {
+    if (current < earthAnimationPos && scrollDirection == "UP") {
+        //alert("roep restart op");
         flameAnimationON = true;
-        flameAnimation.resume();
+        flameAnimation.restart();
     }
 
-    if (current < earthAnimationPos && scrollDirection == "DOWN" && flameAnimationON == true) {
+    if (current < earthAnimationPos && scrollDirection == "DOWN") {
         flameAnimationON = false;
-        flameAnimation.restart();
         flameAnimation.pause()
     }
     //#endregion

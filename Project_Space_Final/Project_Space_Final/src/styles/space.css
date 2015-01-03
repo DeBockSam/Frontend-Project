@@ -100,6 +100,7 @@ body {
   right: 0;
 }
 #shuttle {
+  position: absolute;
   width: 20vw;
   height: 20vh;
 }
@@ -108,8 +109,39 @@ body {
   position: absolute;
   left: 40vw;
   bottom: 10vh;
-  width: 20vw;
+  width: auto;
   height: 20vh;
+}
+/*#rocket1Wrapper{
+    z-index:13;
+    position: absolute;
+    left:41vw;
+    bottom: @earthHeight;
+    height: 8vh;
+    width: 5vw;
+}
+
+#rocket2Wrapper{
+    z-index:13;
+    position: absolute;
+    left:50vw - (@shuttleWidth/2);
+    bottom: @earthHeight;
+    width: auto;
+    height: @shuttleHeight;
+}*/
+#sideRocket1 {
+  position: absolute;
+  width: auto;
+  height: 16vh;
+  left: 8vw;
+  bottom: 0;
+}
+#sideRocket2 {
+  position: absolute;
+  width: auto;
+  height: 16vh;
+  left: 10vw;
+  bottom: 0;
 }
 #shuttleFire {
   z-index: 14;
