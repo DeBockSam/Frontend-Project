@@ -15,7 +15,7 @@ var currentOpacity = "1"; //opacity van atmosphere
 var needsLowering;
 var needsMore;
 
-//Animation trigger variabelen
+//Animation trigger variabelen (is de animatie al voltooid of niet: anders herhaalt zich de animatie bij elke scroll beweging)ds
 var earthAnimation;
 var shuttleBeforeTakeOff;
 var shuttleTakeOff;
@@ -30,12 +30,32 @@ var moonAnimationIN;
 var moonAnimationOUT = false;
 var marsAnimation;
 
+//Animation ScrollPositions (keyframes om animatie te starten op die bepaalde scrollposition)
+var earthAnimationPos = 13500;
+//
+var shuttleBeforeTakeoffPos = 14900;
+var shuttleTakeoffPos = 13500;
+//
+var issAnimateINPos = 12300;
+var issAnimatedOUTPos = 11000;
+//
+var sputnikAnimateINPos = 10500;
+var sputkikAnimateOUTPos = 9200;
+//
+var creaturesAnimateINPos = 8700;
+var creaturesAnimateOUTPos = 7400;
+//
+var moonAnimateINPos = 6500;
+var moonAnimateOUTPos = 4500;
+//
+var marsAnimateINOUTPos = windowheight + 200;
+
+
 
 
 $(document).ready ( function(){
     //startScroll = window.scrollY;
 });
-
 
 window.onload = function () {
     location.href = "#bottom";
@@ -93,13 +113,13 @@ function CheckAnimations() {
     });
     
     //#region Earth Animation
-    if (current <= 13500 && earthAnimation != true) {
+    if (current <= earthAnimationPos && earthAnimation != true) {
         earthAnimation = true;
         //alert('hide earth');
         TweenMax.fromTo("#earth", 1, { css: { bottom: 0 } }, { css: { bottom: -(earthHeight) } });
     }
 
-    if (current > 13500 && earthAnimation == true) {
+    if (current > earthAnimationPos && earthAnimation == true) {
         earthAnimation = false;
         //alert('show earth');
         TweenMax.fromTo("#earth", 1, { css: { bottom: -(earthHeight) } }, { css: { bottom: 0 } });
@@ -107,13 +127,13 @@ function CheckAnimations() {
     //#endregion
 
     //#region Shuttle BeforeTakeOff Animation
-    if (current <= 14900 && shuttleBeforeTakeOff != true) {
+    if (current <= shuttleBeforeTakeoffPos && shuttleBeforeTakeOff != true) {
         shuttleBeforeTakeOff = true;
         //alert('start takeoff shake');
         $('#shipShaker').trigger('startRumble');
     }
 
-    if (current > 14900 && shuttleBeforeTakeOff == true) {
+    if (current > shuttleBeforeTakeoffPos && shuttleBeforeTakeOff == true) {
         shuttleBeforeTakeOff = false;
         //alert('stop takeoff shake');
         $('#shipShaker').trigger('stopRumble');
@@ -121,14 +141,14 @@ function CheckAnimations() {
     //#endregion
 
     //#region Shuttle TakeOff Animation
-    if (current <= 13500 && shuttleTakeOff != true) {
+    if (current <= shuttleTakeoffPos && shuttleTakeOff != true) {
         shuttleTakeOff = true;
         //alert('shuttle takes off');
         TweenMax.fromTo("#shuttleWrapper", 2, { css: { bottom: earthHeight } }, { css: { bottom: (windowheight * 0.50) - shuttleHeight } });
         $('#shipShaker').trigger('stopRumble');
     }
 
-    if (current > 13500 && shuttleTakeOff == true) {
+    if (current > shuttleTakeoffPos && shuttleTakeOff == true) {
         shuttleTakeOff = false;
         //alert('shuttle is about to land');
         TweenMax.fromTo("#shuttleWrapper", 2, { css: { bottom: (windowheight * 0.50) - shuttleHeight } }, { css: { bottom: earthHeight } });
@@ -137,14 +157,14 @@ function CheckAnimations() {
 
     //#region ISS Part
     //#region Animate ISS in (when flying high enough)
-    if (current <= 12300 && issAnimatedIN != true && issAnimatedOUT == false) {
+    if (current <= issAnimateINPos && issAnimatedIN != true && issAnimatedOUT == false) {
         issAnimatedIN = true;
         //alert("eerste animatie");
         TweenMax.fromTo("#spaceStation", 1.5, { css: { top: -windowheight / 2 } }, { css: { top: (windowheight / 2) - (shuttleHeight / 2) } });
     }
 
 
-    if (current > 12300 && issAnimatedIN == true) {
+    if (current > issAnimateINPos && issAnimatedIN == true) {
         issAnimatedIN = false;
         TweenMax.fromTo("#spaceStation", 1.5, { css: { top: (windowheight / 2) - (shuttleHeight / 2) } }, { css: { top: -windowheight / 2 } });
         //higherAtmosphereOpacity();
@@ -152,7 +172,7 @@ function CheckAnimations() {
     //#endregion
 
     //#region Animate ISS out (when flying higher)
-    if (current <= 11000 && issAnimatedIN == true && issAnimatedOUT != true) {
+    if (current <= issAnimatedOUTPos && issAnimatedIN == true && issAnimatedOUT != true) {
         issAnimatedOUT = true;
         issAnimatedIN = false;
         //alert("zou moeten uit animeren naar onder");
@@ -160,7 +180,7 @@ function CheckAnimations() {
     }
 
 
-    if (current > 11000 && issAnimatedIN != true && issAnimatedOUT == true) {
+    if (current > issAnimatedOUTPos && issAnimatedIN != true && issAnimatedOUT == true) {
         issAnimatedOUT = false;
         issAnimatedIN = true;
         //alert("zou moeten in animeren van onder");
@@ -172,7 +192,7 @@ function CheckAnimations() {
    
     //#region sputnik Part
     //#region Animate sputnik in (when flying high enough)
-    if (current <= 10500 && sputnikAnimatedIN != true && sputnikAnimatedOUT == false) {
+    if (current <= sputnikAnimateINPos && sputnikAnimatedIN != true && sputnikAnimatedOUT == false) {
         //alert("ik kom in sputnik animatie terecht")
         sputnikAnimatedIN = true;
         //alert("eerste animatie");
@@ -180,7 +200,7 @@ function CheckAnimations() {
     }
 
 
-    if (current > 10500 && sputnikAnimatedIN == true) {
+    if (current > sputnikAnimateINPos && sputnikAnimatedIN == true) {
         sputnikAnimatedIN = false;
         TweenMax.fromTo("#sputnik", 1.5, { css: { top: (windowheight / 2) - (shuttleHeight / 2) } }, { css: { top: -windowheight / 2 } });
         //higherAtmosphereOpacity();
@@ -188,7 +208,7 @@ function CheckAnimations() {
     //#endregion
 
     //#region Animate sputnik out (when flying higher)
-    if (current <= 9200 && sputnikAnimatedIN == true && sputnikAnimatedOUT != true) {
+    if (current <= sputkikAnimateOUTPos && sputnikAnimatedIN == true && sputnikAnimatedOUT != true) {
         sputnikAnimatedOUT = true;
         sputnikAnimatedIN = false;
         //alert("zou moeten uit animeren naar onder");
@@ -196,7 +216,7 @@ function CheckAnimations() {
     }
 
 
-    if (current > 9200 && sputnikAnimatedIN != true && sputnikAnimatedOUT == true) {
+    if (current > sputkikAnimateOUTPos && sputnikAnimatedIN != true && sputnikAnimatedOUT == true) {
         sputnikAnimatedOUT = false;
         sputnikAnimatedIN = true;
         //alert("zou moeten in animeren van onder");
@@ -208,7 +228,7 @@ function CheckAnimations() {
 
     //#region Living creatures in space
     //#region Animate in (when flying high enough)
-    if (current <= 8700 && creaturesAnimatedIN != true && creaturesAnimatedOUT == false) {
+    if (current <= creaturesAnimateINPos && creaturesAnimatedIN != true && creaturesAnimatedOUT == false) {
         //alert("ik kom in de animeer in functie")
         creaturesAnimatedIN = true;
         TweenMax.fromTo("#shipAndCable", 0.5, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
@@ -217,7 +237,7 @@ function CheckAnimations() {
     }
 
 
-    if (current > 8700 && creaturesAnimatedIN == true) {
+    if (current > creaturesAnimateINPos && creaturesAnimatedIN == true) {
         creaturesAnimatedIN = false;
         TweenMax.fromTo("#shipAndCable", 0.5, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0  } });
         TweenMax.fromTo("#monkey", 0.5, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
@@ -226,7 +246,7 @@ function CheckAnimations() {
     //#endregion
 
     //#region Animate out (when flying higher)
-    if (current <= 7400 && creaturesAnimatedIN == true && creaturesAnimatedOUT != true) {
+    if (current <= creaturesAnimateOUTPos && creaturesAnimatedIN == true && creaturesAnimatedOUT != true) {
         creaturesAnimatedOUT = true;
         creaturesAnimatedIN = false;
         TweenMax.fromTo("#shipAndCable", 0.5, { css: { scale: 1, opacity: 1 } }, { css: { scale: 0, opacity: 0 } });
@@ -235,7 +255,7 @@ function CheckAnimations() {
     }
 
 
-    if (current > 7400 && creaturesAnimatedIN != true && creaturesAnimatedOUT == true) {
+    if (current > creaturesAnimateOUTPos && creaturesAnimatedIN != true && creaturesAnimatedOUT == true) {
         creaturesAnimatedOUT = false;
         creaturesAnimatedIN = true;
         TweenMax.fromTo("#shipAndCable", 0.5, { css: { scale: 0, opacity: 0 } }, { css: { scale: 1, opacity: 1 } });
@@ -247,14 +267,14 @@ function CheckAnimations() {
     
     //#region moon surface Part
     //#region Animate moon in (when flying high enough)
-    if (current <= 6500 && moonAnimationIN != true && moonAnimationOUT == false) {
+    if (current <= moonAnimateINPos && moonAnimationIN != true && moonAnimationOUT == false) {
         moonAnimationIN = true;
         TweenMax.fromTo("#shuttleWrapper", 1, { css: { bottom: (windowheight * 0.50) - shuttleHeight } }, { css: { bottom: earthHeight } });
         TweenMax.fromTo("#moonSurface", 1, { css: { bottom: -windowheight} }, { css: { bottom: -(windowheight*0.15) } });
     }
 
 
-    if (current > 6500 && moonAnimationIN == true) {
+    if (current > moonAnimateINPos && moonAnimationIN == true) {
         moonAnimationIN = false;
         TweenMax.fromTo("#moonSurface", 1, { css: { bottom: -(windowheight * 0.15) } }, { css: { bottom: -windowheight } });
         TweenMax.fromTo("#shuttleWrapper", 1, { css: { bottom: earthHeight } }, { css: { bottom: (windowheight * 0.50) - shuttleHeight } });
@@ -262,7 +282,7 @@ function CheckAnimations() {
     //#endregion
 
     //#region Animate moon out (when flying higher)
-    if (current <= 4500 && moonAnimationIN == true && moonAnimationOUT != true) {
+    if (current <= moonAnimateOUTPos && moonAnimationIN == true && moonAnimationOUT != true) {
         moonAnimationOUT = true;
         moonAnimationIN = false;
         TweenMax.fromTo("#shuttleWrapper", 1, { css: { bottom: earthHeight } }, { css: { bottom: (windowheight * 0.50) - shuttleHeight } });
@@ -270,7 +290,7 @@ function CheckAnimations() {
     }
 
 
-    if (current > 4500 && moonAnimationIN != true && moonAnimationOUT == true) {
+    if (current > moonAnimateOUTPos && moonAnimationIN != true && moonAnimationOUT == true) {
         moonAnimationOUT = false;
         moonAnimationIN = true;
         TweenMax.fromTo("#moonSurface", 1, { css: { bottom: -(windowheight / 2) } }, { css: { bottom: -(windowheight * 0.15) } });
@@ -280,15 +300,15 @@ function CheckAnimations() {
     //#endregion
 
     //#region Mars Animation
-    if (current <= (windowheight + 500) && marsAnimation != true) {
+    if (current <= marsAnimateINOUTPos && marsAnimation != true) {
         marsAnimation = true;
-        TweenMax.fromTo("#marsSurface", 1, { css: { top: -windowheight / 2 } }, { css: { top: 0 } });
+        TweenMax.fromTo("#marsSurface", 0.7, { css: { top: -windowheight / 2 } }, { css: { top: 0 } });
     }
 
-    if (current > (windowheight + 500) && marsAnimation == true) {
+    if (current > marsAnimateINOUTPos && marsAnimation == true) {
         marsAnimation = false;
         //alert('show earth');
-        TweenMax.fromTo("#marsSurface", 1, { css: { top: 0 } }, { css: { top: -windowheight / 2 } });
+        TweenMax.fromTo("#marsSurface", 1.5, { css: { top: 0 } }, { css: { top: -windowheight / 2 } });
     }
     //#endregion
 }
