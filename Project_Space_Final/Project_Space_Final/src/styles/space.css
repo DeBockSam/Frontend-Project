@@ -2,6 +2,7 @@
 /*#endregion*/
 body {
   margin: 0;
+  font-family: 'Ubuntu', sans-serif;
   /*-webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
     -o-transition: all 0.5s ease-in-out;
@@ -19,7 +20,7 @@ body {
   padding-right: 15px;
 }
 #stars {
-  height: 15000px;
+  height: 20000px;
   width: 100%;
   display: block;
   position: relative;

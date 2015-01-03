@@ -1,8 +1,8 @@
 ﻿//globale variablen
 var startScroll;
 var currentScrollTop;
-var lastScrollTop = 150000;
-var scrollValue = 15000;
+var lastScrollTop = 20000;
+var scrollValue = 20000;
 var scrollDirection;
 var windowheight = $(window).height();   // returns height of browser viewport
 var htmlheight = $(document).height(); // returns height of HTML document
@@ -31,22 +31,22 @@ var moonAnimationOUT = false;
 var marsAnimation;
 
 //Animation ScrollPositions (keyframes om animatie te starten op die bepaalde scrollposition)
-var earthAnimationPos = 13500;
+var earthAnimationPos = 18500;
 //
-var shuttleBeforeTakeoffPos = 14900;
-var shuttleTakeoffPos = 13500;
+var shuttleBeforeTakeoffPos = 19900;
+var shuttleTakeoffPos = 18500;
 //
-var issAnimateINPos = 12300;
-var issAnimatedOUTPos = 11000;
+var issAnimateINPos = 16000;
+var issAnimatedOUTPos = 14000;
 //
-var sputnikAnimateINPos = 10500;
-var sputkikAnimateOUTPos = 9200;
+var sputnikAnimateINPos = 12000;
+var sputkikAnimateOUTPos = 10000;
 //
-var creaturesAnimateINPos = 8700;
-var creaturesAnimateOUTPos = 7400;
+var creaturesAnimateINPos = 8000;
+var creaturesAnimateOUTPos = 6000;
 //
-var moonAnimateINPos = 6500;
-var moonAnimateOUTPos = 4500;
+var moonAnimateINPos = 5000;
+var moonAnimateOUTPos = 3500;
 //
 var marsAnimateINOUTPos = windowheight + 200;
 
