@@ -54,10 +54,119 @@ var marsAnimateINOUTPos = windowheight + 200;
 
 
 
+//#region Weer gedeelte
 
 $(document).ready ( function(){
-    //startScroll = window.scrollY;
+
+    //Geolocatie opvragen
+    (function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+        } else {
+            console.log("Geolocation is not supported by this browser.");
+        }
+    })();
+
+    //Via Geolocatie weerstatus opvragen van gegeven plaats
+    function showPosition(position) {
+        console.log("Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude)
+
+        var url = "https://api.metwit.com/v2/weather/?location_lat=" + position.coords.latitude + "&location_lng=" + position.coords.longitude;
+
+
+        //data is van type plainobject
+        $.getJSON(url, function (data) {
+            var items = [];
+
+            /* loop through array */
+            var i = 0;
+            console.log(data.objects[0].weather.status);
+            var weatherCondition = data.objects[0].weather.status;
+            showWeather(weatherCondition);
+            /*$.each( data, function( key, value ) {
+
+             console.log(key + ' / ' + value[i].weather.status);
+             i++;
+             });*/
+
+        });
+    }
+
 });
+
+//ShowWeather
+function showWeather(weatherCondition) {
+    console.log(weatherCondition);
+    //weatherCondition = 'snowy';
+    //weatherCondition = 'rainy';
+    //alert(weatherCondition);
+    var earth = document.getElementById("earth");
+    switch (weatherCondition) {
+        case 'unknown':
+            makeEarthClear(earth);
+            break;
+        case 'clear':
+            makeEarthClear(earth);
+            break;
+        case 'rainy':
+            makeEarthRainy(earth);
+            break;
+        case 'stormy':
+            makeEarthRainy(earth);
+            break;
+        case 'snowy':
+            makeEarthSnowy(earth);
+            break;
+        case 'partly cloudy':
+            makeEarthRainy(earth);
+            break;
+        case 'cloudy':
+            makeEarthRainy(earth);
+            break;
+        case 'hailing':
+            makeEarthSnowy(earth);
+            break;
+        case 'heavy seas':
+            makeEarthRainy(earth);
+            break;
+        case 'calm seas':
+            makeEarthClear(earth);
+            break;
+        case 'foggy':
+            makeEarthSnowy(earth);
+            break;
+        case 'snow flurries':
+            makeEarthSnowy(earth);
+            break;
+        case 'windy':
+            makeEarthRainy(earth);
+            break;
+    }
+}
+
+function makeEarthClear(earth) {
+    document.getElementById("earth").style.backgroundColor = "forestgreen";
+    //forceer een redraw van earth om te laten zien
+    //$('#earth').hide().show(0);
+}
+
+function makeEarthSnowy(earth) {
+    document.getElementById("earth").style.backgroundColor = "white";
+    document.getElementById("atmosphere").className = "atmosphereSnowy";
+    //earth.style.backgroundColor == "white";
+    //$('#earth').hide().show(0);
+}
+
+function makeEarthRainy(earth) {
+    //earth.style.backgroundColor == "#114411";
+    document.getElementById("earth").style.backgroundColor = "#114411";
+    document.getElementById("atmosphere").className = "atmosphereRainy";
+    //$('#earth').hide().show(0);
+}
+
+//#endregion
+
+//#region Animatie en site gedeelte
 
 window.onload = function () {
     location.href = "#bottom";
@@ -149,6 +258,7 @@ function CheckAnimations() {
 
     if (current < earthAnimationPos && scrollDirection == "DOWN") {
         flameAnimationON = false;
+        flameAnimation.restart();
         flameAnimation.pause()
     }
     //#endregion
@@ -404,4 +514,5 @@ function CheckAnimations() {
     //#endregion
 }
 
+//#endregion
 
